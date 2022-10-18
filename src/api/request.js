@@ -42,10 +42,10 @@ Axios.interceptors.response.use(
     //按照实际的响应包进行解析，通过关键字匹配的方式
     switch (true) {
       case err.indexOf("Network") !== -1:
-        console.log("后端服务器无响应或者URL错误", err);
+        console.error("后端服务器无响应或者URL错误", err);
         break;
       case err.indexOf("timeout") !== -1:
-        console.log("请求后端服务器超时！", err);
+        console.error("请求后端服务器超时！", err);
         break;
     }
     return Promise.reject(error);

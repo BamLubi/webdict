@@ -25,7 +25,7 @@ function search(e) {
     })
     .catch(err => {
       loading.value = false;
-      console.err("[search] [%s] ERROR: %o", e, err);
+      console.error("[search] [%s] ERROR: %o", e, err);
     });
 }
 
@@ -52,7 +52,7 @@ const handleDelete = (index, row) => {
       })
       .catch(err => {
         _loading.close();
-        console.err("[delete] ERROR: %o", err);
+        console.error("[delete] ERROR: %o", err);
       });
   }
 };
@@ -78,7 +78,7 @@ const handleRate = (index, row) => {
       })
       .catch(err => {
         _loading.close();
-        console.err("[rate - has_rate] ERROR: %o", err);
+        console.error("[rate - has_rate] ERROR: %o", err);
       });
   } else {
     rateLiterature(JSON.parse(JSON.stringify(row)))
@@ -91,7 +91,7 @@ const handleRate = (index, row) => {
       })
       .catch(err => {
         _loading.close();
-        console.err("[rate] ERROR: %o", err);
+        console.error("[rate] ERROR: %o", err);
       });
   }
 };
@@ -124,7 +124,7 @@ const confirmEdit = () => {
       .catch(err => {
         _loading.close();
         dialogFormVisible.value = false;
-        console.err("[edit] ERROR: %o", err);
+        console.error("[edit] ERROR: %o", err);
       });
   }
 };
