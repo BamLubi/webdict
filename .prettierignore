@@ -2,6 +2,7 @@
 *.ico
 *.png
 *.jpg
+*.yml
 .gitignore
 .gitattributes
 .prettierignore
