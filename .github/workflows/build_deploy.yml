@@ -29,12 +29,13 @@ jobs:
           npm run build
 
       - name: Deploy
-        uses: SamKirkland/FTP-Deploy-Action@2.0.0
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          LOCAL_DIR: "./dist/"
-          REMOTE_DIR: ${{ secrets.REMOTE_DIR }}
-          METHOD: sftp
-          PORT: ${{ secrets.FTP_PORT }}
+        uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY}}
+          pass: ${{ secrets.FTP_PASSWORD}}
+          first_ssh: |
+            rm -rf /www/wwwroot/webdict/*
+          scp: |
+            "./dist/" => ${{ secrets.REMOTE_DIR }}
