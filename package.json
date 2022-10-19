@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "vite --mode development",
+    "build_dev": "vite build --mode development",
     "build": "vite build --mode production",
     "preview": "vite preview --port 4173",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
