@@ -3,6 +3,7 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { visualizer } from "rollup-plugin-visualizer";
+import viteCompression from "vite-plugin-compression";
 
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
@@ -16,6 +17,15 @@ export default defineConfig({
     }),
     Components({
       resolvers: [ElementPlusResolver()],
+    }),
+    viteCompression({
+      verbose: true,
+      disable: false,
+      test: /\.(js|css|svg)$/,
+      threshold: 102400,
+      minRatio: 0.8,
+      algorithm: "gzip",
+      ext: ".gz",
     }),
     visualizer(),
   ],
@@ -49,8 +59,13 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
-        manualChunks: {
-          lodash: ["lodash"],
+        chunkFileNames: "assets/js/[name]-[hash].js",
+        entryFileNames: "assets/js/[name]-[hash].js",
+        assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            return id.toString().split("node_modules/")[1].split("/")[0].toString();
+          }
         },
       },
     },
