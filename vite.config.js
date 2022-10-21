@@ -34,6 +34,19 @@ export default defineConfig({
     },
   },
   build: {
+    target: "modules",
+    sourcemap: false,
+    minify: "terser",
+    outDir: "dist",
+    assetsDir: "assets",
+    chunkSizeWarningLimit: 1500,
+    assetsInlineLimit: 4096,
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks: {
