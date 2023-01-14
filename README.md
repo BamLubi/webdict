@@ -3,7 +3,8 @@
   <h1>WebDict</h1>
 </div>
 
-----
+![](https://img.shields.io/badge/vue-3-brightgreen) ![](https://img.shields.io/badge/-elementUI-blue) ![](https://img.shields.io/badge/-CI/CD-red)
+
 
 This project is used to look up example sentences as you write your paper. It's developing with Vue 3 in Vite.
 
@@ -46,3 +47,11 @@ npm run build[_dev]
 ```sh
 npm run lint
 ```
+
+## CI/CD
+supproted by `GitHub Actions`
+
+When you push code to the branch "main", it will trigger the Action "Build & Deploy", which will build the project and deploy it to the remote server(you need to config your own secrets).
+
+Please check the file `.github\workflows` for more details.
+
