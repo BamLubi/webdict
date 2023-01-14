@@ -8,7 +8,7 @@
 
 This project is used to look up example sentences as you write your thesis. It's developing with Vue 3 in Vite.
 
-Please check the `github/webdict-server` for the server of this project.
+Please check the `BamLubi/webdict-server` for the server of this project.
 
 ## Features
 
