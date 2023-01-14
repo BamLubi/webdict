@@ -6,7 +6,9 @@
 ![](https://img.shields.io/badge/vue-3-brightgreen) ![](https://img.shields.io/badge/-elementUI-blue) ![](https://img.shields.io/badge/-CI/CD-red)
 
 
-This project is used to look up example sentences as you write your paper. It's developing with Vue 3 in Vite.
+This project is used to look up example sentences as you write your thesis. It's developing with Vue 3 in Vite.
+
+Please check the `github/webdict-server` for the server of this project.
 
 ## Features
 
